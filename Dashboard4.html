@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-latest.min.js"></script>
+
+    <link rel="stylesheet" href="datatables.min.css" >
+    <link rel="stylesheet" type="text/css" href="common.css" >
+    <link rel="stylesheet" type="text/css" href="bootstrap.css" >
+    <link rel="stylesheet" href="rmate/rMateChartH5/Assets/Css/rMateChartH5.css">
+    <link rel="stylesheet" href="rmate.css">
+
+    
+    <script src="datatables.min.js"></script>
+    <script src="common.js"></script>
+    <script type="text/javascript"  src="rmate/LicenseKey/rMateChartH5License.js"></script>
+    <script type="text/javascript"  src="rmate/rMateChartH5/JS/rMateChartH5.js"></script>
+    <script type="text/javascript"  src="rmate/rMateChartH5/Assets/Theme/theme.js"></script>
+    <script src="rmate.js"></script>  
+</head>
+<head>
+	<style>
+	.wrap_body {
+		margin: 0;
+		border: 0;
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+		grid-template-rows: 1fr 1fr 1fr 1fr;
+		grid-template-areas: "a a b c" "d e f g" "h i j j" "k l m m";
+		width: 100%;
+		height: 100vh;
+	}
+	</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<div class="position_left">
+				<nav class="left_sidebar" id="left_sidebar">
+					<th:block th:replace="layout/sidebar"></th:block>
+				</nav>
+				<span class="sidebar_Breaker" id="sidebar_Breaker"> <span
+					class="sidebar_Breaker_child"></span><span
+					class="sidebar_Breaker_child"></span><span
+					class="sidebar_Breaker_child"></span>
+				</span>
+			</div>
+			<div class="position_body">
+				<div id="wrap_body" class="wrap_body">
+					<div id="a" class="a"></div>
+					<div id="b" class="b"></div>
+					<div id="c" class="c"></div>
+					<div id="d" class="d"></div>
+					<div id="e" class="e"></div>
+					<div id="f" class="f"></div>
+					<div id="g" class="g"></div>
+					<div id="h" class="h"></div>
+					<div id="i" class="i"></div>
+					<div id="j" class="j"></div>
+					<div id="k" class="k"></div>
+					<div id="l" class="l"></div>
+					<div id="m" class="m"></div>
+					<div id="n" class="n"></div>
+					<div id="o" class="o"></div>
+					<div id="p" class="p"></div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script>
+	$(document).ready(function(){
+		
+		sidebar_on = false;
+		var chartData5 = [{"Indicator":"Capacity", "performance":40, "target":50, "share": Math.round(Math.random()*100)},
+			  {"Indicator":"Efficiency", "performance":Math.round(Math.random()*50), "target":50, "share": Math.round(Math.random()*100)},
+				{"Indicator":"Facility", "performance":19, "target":50, "share": Math.round(Math.random()*100)},
+			  {"Indicator":"Constraints", "performance":Math.round(Math.random()*80), "target":80, "share": Math.round(Math.random()*100)},
+			   {"Indicator":"Punctuality", "performance":80, "target":100, "share": Math.round(Math.random()*100)}];
+		//var chartData24 = [{"HH":"00", "performance":"10", "target": "12"}];
+		var tablesample1 = [{"img": "", "pax": "여 객", "cgo" : "화 물", "etc" : "기 타", "tot" : "전 체"},
+			{"img": "DEP", "pax": "350/450", "cgo" : "350/450", "etc" : "350/450", "tot" : "350/451"},
+			{"img": "ARR", "pax": "350/450", "cgo" : "350/450", "etc" : "350/450", "tot" : "350/452"},
+			{"img": "ALL", "pax": "350/450", "cgo" : "350/450", "etc" : "350/450", "tot" : "350/453"}];
+		var tablesample2 = [{"number":"연변","start":"시작","end":"종료","route":"항로/공항","adjustment":"조절","reason": "사 유"}
+		,{"number":"1","start":"","end":"","route":"","adjustment":"","reason":""}
+		,{"number":"2","start":"","end":"","route":"","adjustment":"","reason":""}
+		,{"number":"3","start":"","end":"","route":"","adjustment":"","reason":""}
+		,{"number":"4","start":"","end":"","route":"","adjustment":"","reason":""}
+		,{"number":"5","start":"","end":"","route":"","adjustment":"","reason":""}];
+		var tablesample3 = [{"number":"연변","start":"시작","end":"종료","remark":"내용(REMARK)"}
+		,{"number":"1","start":"","end":"","remark":""}
+		,{"number":"2","start":"","end":"","remark":""}
+		,{"number":"3","start":"","end":"","remark":""}
+		,{"number":"4","start":"","end":"","remark":""}
+		,{"number":"5","start":"","end":"","remark":""}];
+		var chartData24 = [];
+		var chartData10 = [];
+		var chartData10_1 = [];
+		randomdataGenerator(chartData24, 24, 100);
+		randomdataGenerator(chartData10, 10, 100);
+		randomdataGenerator(chartData10_1, 10, 100);
+		var sample1 = randomdataGenerator2();
+		var sample2 = randomdataGenerator3();
+		divcollection2();
+		function divcollection2(){
+			let tempcss1 = {'display':'flex'};
+			let tempcss2 = {'border':'1px solid #b2b2b2', 'width':'100px','height':'35px','border-radius':'2px','font-size':'18px', 'display':'flex','font-weight':'bold', 'justify-content':'center','align-items':'center'};
+			let tempcss3 = {'display':'grid','justify-content':'center','align-items':'center'};
+			let tempcss4 = {'display':'grid','grid-template-rows':'1fr 3fr', 'grid-template-columns': '1fr 1fr 1fr', 'width':'100%', 'height': '100%'};
+			let tempcss5 = {'display': 'grid', 'grid-template-areas':'"f1 f1 f2 f3 f4" "f1 f1 f5 f6 f7" "f1 f1 f8 f9 f10" "f11 f11 f12 f13 f14"', 'grid-template-rows': '2.5fr 1fr 2.5fr 1fr', 'grid-template-columns': '1fr 1fr 1fr 1fr 1fr'};
+			let tempcss6 = {'border' : '3px solid #d9d9d9', 'width': '70px', 'background-color':'#333f50','height': '26px','border-radius':'4px','font-size':'14px', 'display':'flex','font-weight':'bold', 'justify-content':'center','align-items':'center', 'color': 'white'};
+			let tempcss7 = {'border' : '3px solid #d9d9d9', 'width': '70px', 'background-color':'#0070c0','height': '26px','border-radius':'4px','font-size':'14px', 'display':'flex','font-weight':'bold', 'justify-content':'center','align-items':'center', 'color': 'white'};
+			let tempcss8 = {'border' : '3px solid #d9d9d9', 'width': '70px', 'background-color':'#767171','height': '26px','border-radius':'4px','font-size':'14px', 'display':'flex','font-weight':'bold', 'justify-content':'center','align-items':'center', 'color': 'white'};
+			let tablecss = {"width":"100%", "height": "100%", "table-layout": "fixed"};
+			
+			let tempvariable1 = defaultvariable({});
+			let tempvariable2 = defaultvariable({'color':['red','#333333'],'text':['GOOD','BAD']});
+			let tempvariable3 = defaultvariable({'title':['Household Expenditure']});//a
+			let tempvariable4 = {'fillColor':['#0070c0','#7f7f7f']};
+			let tempvariable5 = {'fillColor':['#ff0000','#7f7f7f']};
+			let tempvariable6 = {'fillColor':['#41b2e6','#7f7f7f','#22b14c','#7f7f7f']}
+			let tempvariable7 = {'fillColor':['#ffc000','#ed7d31'],'strokeColor':['#ffc000','#ed7d31']};
+			//a
+			gridboxitemmaker('.a','기상예보','weather_cast');
+			//b
+			gridboxitemmaker(".b", '비정상운항', 'unusual_flight');
+			table_creator2($("#unusual_flight"), tablecss, "unusual_flight_table", 4, 4);
+			table_fill("unusual_flight",tablesample1);
+			
+			//c
+			gridboxitemmaker(".c", '항공기 운항정시성', 'flight_ontime');
+			twodonut2("flight_ontime",["DEP","ARR",'주기장','활주로','주기장','활주로']);
+			graphcreate("flight_ontime_g", "flight_ontime_c",4, 1);
+			targetgraph3("flight_ontime_g1",randomdataGenerator3(), getObjectKeys(sample2[0]), tempvariable4);
+			targetgraph3("flight_ontime_g2",randomdataGenerator3(), getObjectKeys(sample2[0]), tempvariable5);
+			targetgraph3("flight_ontime_g3",randomdataGenerator3(), getObjectKeys(sample2[0]), tempvariable4);
+			targetgraph3("flight_ontime_g4",randomdataGenerator3(), getObjectKeys(sample2[0]), tempvariable5);
+			//d
+			scheduletable('.d','scheduletable');
+			
+			//e
+			gridboxitemmaker(".e", '출발 항공기 운항상태', 'dep_flight_status');
+			table_creator2($("#dep_flight_status"), tablecss, "dep_flight_status_table", 4, 3);
+			table_fill("dep_flight_status_table",tablesample1);
+			//f
+			gridboxitemmaker(".f", '제방빙 실적', 'deicing_performance');
+			table_creator2($("#deicing_performance"), tablecss, "deicing_performance_table", 4, 4);
+			table_fill("deicing_performance_table",tablesample1);
+			//h
+			gridboxitemmaker(".h", '운항 계획 대비 실적(전체 운항)', 'plan_via_performance_tot');
+			graphcreate_only('plan_via_performance_tot');
+			targetgraph8('plan_via_performance_tot_g1',chartData10,getObjectKeys(chartData10[0]), {'fillColor':['#ffc000','#ed7d31'],'strokeColor':['#ffc000','#ed7d31']});
+			
+			//i
+			gridboxitemmaker(".i", '운항지연(시간대별)', 'delay_via_time');
+			graphcreate_only('delay_via_time');
+			targetgraph11('delay_via_time_g1',chartData24,getObjectKeys(chartData10[0]), tempvariable1);
+			//j
+			gridboxitemmaker(".j", '제방빙 존 및 패드 현황', 'deicing_pad_performance');
+			//k
+			gridboxitemmaker(".k", '운항 계획 대비 실적(출발/도착)', 'plan_via_performance_deparr');
+			graphcreate_only('plan_via_performance_deparr');
+			targetgraph10('plan_via_performance_deparr_g1',chartData10,getObjectKeys(chartData10[0]), tempvariable6);
+			//l
+			gridboxitemmaker(".l", '지연시간', 'delaytime');
+			graphcreate_only('delaytime');
+			targetgraph12('delaytime_g1',chartData24,getObjectKeys(chartData24[0]), tempvariable1);
+			//l
+			gridboxitemmaker(".m", '지상조업사 제방빙 현황', 'deicing_company_performance');
+			table_creator2($("#deicing_company_performance"), tablecss, "deicing_company_performance_table", 7, 6);
+		}
+		//divcollection();
+		rMateChartH5.registerTheme(rMateChartH5.themes);
+	})
+	</script>
+	</html>
